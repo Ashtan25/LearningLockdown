@@ -10,28 +10,39 @@ import XCTest
 @testable import PhotoApp
 
 class SignupWebServiceTests: XCTestCase {
-
-    override func setUpWithError() throws {
+    
+    override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-
-    override func tearDownWithError() throws {
+    
+    override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
+    
     func testSignupWebService_WhenGivenSuccessfullResponse_ReturnSuccess() {
         
-        //Arrange
-        let sut = SignupWebService()
+        // Arrange
+        let sut = SignupWebService(urlString: "http://appsdeveloperblog.com:8080/signup-mock-service/users")
         
         let signFormRequestModel = SignupFormRequestModel(firstName: "Ashish", lastName: "Singh", email: "test@test.com", password: "12345678")
         
-        sut.signup(withForm: signFormRequestModel) { (signFormResponseModel, error) in 
+        let expectation = self.expectation(description: "Signup Web Service Response Expectation")
+        
+        // Act
+        sut.signup(withForm: signFormRequestModel) { (signupResponseModel, error) in
+            
+            
+            // Assert
+            //"{\"status\":\"ok\"}"
+            XCTAssertEqual(signupResponseModel?.status, "ok")
+            expectation.fulfill()
             
         }
+        
+        self.wait(for: [expectation], timeout: 5)
         
         
         
     }
-
+    
 }
