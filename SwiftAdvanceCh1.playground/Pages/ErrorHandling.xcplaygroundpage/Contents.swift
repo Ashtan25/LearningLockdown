@@ -56,7 +56,7 @@ class RollerCoaster {
 
 do {
     
-    let roll = try RollerCoaster(name: "Ashish")
+    _ = try RollerCoaster(name: "Ashish")
 } catch NoName.noName {
     print("You forgot to enter your name")
 }
