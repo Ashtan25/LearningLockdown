@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<playground version='6.0' target-platform='ios' display-mode='raw'>
+    <pages>
+        <page name='ClosuresPart1'/>
+        <page name='ClosurePart2'/>
+        <page name='LazyInitClosures'/>
+        <page name='CaptureList'/>
+        <page name='TrailingClosure'/>
+        <page name='CompletionHandlers'/>
+    </pages>
+</playground>

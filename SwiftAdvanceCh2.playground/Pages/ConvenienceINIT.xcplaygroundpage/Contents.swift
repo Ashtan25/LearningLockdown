@@ -52,4 +52,39 @@ print(ash.name)
  let blog = ashBlog?.name
  print(blog!)
 
+ 
+ // Two phase init
+ 
+ struct NuclearRocket {
+    
+    var meters: Double
+    var liters: Double
+    
+    //init for Indian
+    
+    init(meters: Double, liters: Double) {
+        self.meters = meters
+        self.liters = liters
+    }
+    
+    //init for American
+    
+    init(ft: Double, gallon: Double) {
+        let convertedMeter = ft / 3.28
+        let convertedLiters = gallon * 3.78
+        
+        self.init(meters: convertedMeter, liters: convertedLiters)
+    }
+    
+    
+    
+ }
+ 
+ let indianScientist = NuclearRocket(meters: 20, liters: 30)
+ indianScientist.meters
+ indianScientist.liters
+ 
+ let americanScientist = NuclearRocket(ft: 4, gallon: 200)
+ americanScientist.liters
+ americanScientist.meters
 //: [Next](@next)
